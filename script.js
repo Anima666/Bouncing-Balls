@@ -54,9 +54,12 @@ function mouseDown(event) {
         if ((mouse.x >= item.x - item.radius) && (mouse.x <= item.x + item.radius) && (mouse.y >= item.y - item.radius) && (mouse.y <= item.y + item.radius)) {
           selectedItem = item.id;
           draggableItem = item.id;
-        } else if ($("input[name='option']:checked").val() == "move") {
+        } else
+        if ($("input[name='option']:checked").val() == "move") {
           // Реакция на столкновение.
-          if (selectedItem) canvas.removeEventListener("mousedown", createWall);
+          if (selectedItem)
+          canvas.removeEventListener("mousedown", createWall);
+          console.log("dvigaem");
           var dx = mouse.x;
           var dy = mouse.y;
           for (var i = 0; i <= objArray2.length - 1; ++i) {
@@ -98,6 +101,7 @@ function mouseDown(event) {
         else {
           canvas.removeEventListener("mousedown", createWall);
           objArray[objArray.length] = new Ball(mouse.x, mouse.y, 1);
+          console.log("create new ball");
         }
       } else {
         canvas.addEventListener("mousedown", ballAction);
@@ -116,25 +120,22 @@ function createWall() {
 }
 
 function ballActiondbclick(event) {
-  //  canvas.removeEventListener("mousemove", renderBall);
-  //console.log("dblclick");
-  //canvas.addEventListener("mousemove", renderArrow);
-  flag_dbclick = true;
+  //flag_dbclick = true;
+  $("input[value='vector']").prop('checked', true);
 }
 
 function ballAction(event) {
-  //console.log(event);
-  //if ($("input[name='option']:checked").val() == "move") {
-  //canvas.addEventListener("mousemove", renderBall);
-  //} else if ($("input[name='option']:checked").val() == "vector") {
-  //canvas.addEventListener("mousemove", renderArrow);
-  //  }
 
-  if (flag_dbclick == false) {
-    canvas.addEventListener("mousemove", renderBall);
-  } else {
-    canvas.addEventListener("mousemove", renderArrow);
-  }
+  // if (flag_dbclick == false) {
+  //   canvas.addEventListener("mousemove", renderBall);
+  // } else {
+  //   canvas.addEventListener("mousemove", renderArrow);
+  // }
+  if ($("input[name='option']:checked").val() == "move") {
+        canvas.addEventListener("mousemove", renderBall);
+  } else if ($("input[name='option']:checked").val() == "vector") {
+        canvas.addEventListener("mousemove", renderArrow);
+    }
 }
 
 function renderWall() {
@@ -173,6 +174,7 @@ function letObjectGo() {
   canvas.removeEventListener("mousemove", MoveWallXY);
   canvas.removeEventListener("mousemove", MoveWallX);
   canvas.removeEventListener("mousemove", MoveWall);
+  //canvas.removeEventListener("dblclick", ballActiondbclick);
 
   draggableItem = null;
   flag_dbclick = false;
@@ -185,11 +187,13 @@ function clearCanvas() {
 
 function pauseHandle() {
   if (paused == false) {
-    $("#btn").text("play");
-    canvas.style.backgroundColor = "#FCA1B8"; //red
+  //  $("#btn").text("play");
+  $(".fa").addClass('fa-play').removeClass('fa-stop');
+    //canvas.style.backgroundColor = "#FCA1B8"; //red
   } else {
-    $("#btn").text("stop");
-    canvas.style.backgroundColor = "#AFE9E2"; //original color
+    //$("#btn").text("stop");
+    $(".fa").addClass('fa-stop').removeClass('fa-play');
+    //canvas.style.backgroundColor = "#AFE9E2"; //original color
   }
 
   paused = !paused;

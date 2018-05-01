@@ -13,7 +13,7 @@ function Wall(x, y, x1, y1) {
     this.drawWall = function () {
         ctx.beginPath();
         ctx.lineWidth = "10";
-        ctx.strokeStyle = "black";
+        ctx.strokeStyle = "brown";
         ctx.moveTo(this.x, this.y);
         ctx.lineTo(this.x1, this.y1)
         ctx.stroke();
