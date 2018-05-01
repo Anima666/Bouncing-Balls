@@ -27,13 +27,13 @@ $(canvas).mousedown(function (event) {
                             })
                             .appendTo('body') // Присоединяем наше меню к body документа:
                             .append( // Добавляем пункты меню:
-                                $('<ul/>').append('<li><img src="./assets/smallBall.png" onclick="setSize(selectedItem,1)"></li>')
-                                    .append('<li><img src="./assets/normalBall.png" onclick="setSize(selectedItem,2)"></li>')
-                                    .append('<li><img src="./assets/bigBall.png" onclick="setSize(selectedItem,3)"></li>')
-                                    .append('<li><img src="./assets/green.png" onclick="setColor(selectedItem,1)"></li>')
-                                    .append('<li><img src="./assets/blue.png" onclick="setColor(selectedItem,2)"></li>')
-                                    .append('<li><img src="./assets/bigBall.png" onclick="setColor(selectedItem,3)"></li>')
-                                    .append('<li><img src="./assets/remove.png" onclick="removeObj(selectedItem)"></li>')
+                                $('<ul/>').append('<li><img src="image/smallBall.png" onclick="setSize(selectedItem,1)"></li>')
+                                    .append('<li><img src="image/normalBall.png" onclick="setSize(selectedItem,2)"></li>')
+                                    .append('<li><img src="image/bigBall.png" onclick="setSize(selectedItem,3)"></li>')
+                                    .append('<li><img src="image/green.png" onclick="setColor(selectedItem,1)"></li>')
+                                    .append('<li><img src="image/blue.png" onclick="setColor(selectedItem,2)"></li>')
+                                    .append('<li><img src="image/bigBall.png" onclick="setColor(selectedItem,3)"></li>')
+                                    .append('<li><img src="image/remove.png" onclick="removeObj(selectedItem)"></li>')
                             )
                             .show('fast'); // Показываем меню с небольшим стандартным эффектом jQuery. Как раз очень хорошо подходит для меню
                     }
@@ -50,7 +50,7 @@ $(canvas).mousedown(function (event) {
                             })
                             .appendTo('body') // Присоединяем наше меню к body документа:
                             .append( // Добавляем пункты меню:
-                                $('<ul/>').append('<li><img src="./assets/remove.png" onclick="removeObj(selectedItem)"></li>')
+                                $('<ul/>').append('<li><img src="image/remove.png" onclick="removeObj(selectedItem)"></li>')
                             )
                             .show('fast'); // Показываем меню с небольшим стандартным эффектом jQuery. Как раз очень хорошо подходит для меню
                     }
@@ -91,7 +91,7 @@ function setColor(id, color) {
     objArray.forEach(item => {
         if (item.id == id) {
             item.color = colorElement;
-            
+
         }
     });
 }

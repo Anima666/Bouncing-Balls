@@ -1,10 +1,20 @@
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
 function getColor() {
-    var x = "red";
-    if (x == "red") {
-        return "rgb(213,89,74)";
-    } else if (x == "blue") {
-        return "rgb(70,130,180)";
-    } else return "rgb(173,255,47)"
+  console.log("db");
+    // var x = "blue";
+    // if (x == "red") {
+    //     return "rgb(213,89,74)";
+    // } else if (x == "blue") {
+    //     return "rgb(70,130,180)";
+    // } else return "rgb(173,255,47)"
+    return getRandomColor();
 
 }
 function getSize() {
