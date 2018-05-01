@@ -59,7 +59,7 @@ function mouseDown(event) {
           // Реакция на столкновение.
           if (selectedItem)
           canvas.removeEventListener("mousedown", createWall);
-          console.log("dvigaem");
+
           var dx = mouse.x;
           var dy = mouse.y;
           for (var i = 0; i <= objArray2.length - 1; ++i) {
@@ -101,7 +101,6 @@ function mouseDown(event) {
         else {
           canvas.removeEventListener("mousedown", createWall);
           objArray[objArray.length] = new Ball(mouse.x, mouse.y, 1);
-          console.log("create new ball");
         }
       } else {
         canvas.addEventListener("mousedown", ballAction);
