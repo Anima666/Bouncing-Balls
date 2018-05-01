@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+  <meta charset="utf-8">
+  <title>2d collision</title>
+  <!--<link rel="shortcut icon" href="favicon.ico" />!-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+    crossorigin="anonymous">
+</head>
+
+<body>
+
+	<div class="toolbar">
+        <nav class="navbar navbar-expand navbar-light bg-light">
+          <button class="btn btn-primary btn-sm" type="button" name="button" onclick="test()" id="newfile">
+          <i class="material-icons right">note_add</i>
+        </button>
+      </nav>
+
+  <div class="panel top-panel">
+    <button id="btn" type="button" onclick="pauseHandle()" class="btn btn-warning">Play</button>
+  </div>
+  <div>
+    <canvas id="myCanvas"></canvas>
+  </div>
+
+  <div class="panel bot-panel">
+
+    <div class="radios-as-buttons">
+      <div>
+        <input type="radio" name="option" id="move" value="move" />
+        <label for="move">
+          <img src="image/move.png">
+        </label>
+      </div>
+      <div>
+        <input type="radio" name="option" id="vector" value="vector" />
+        <label for="vector">
+          <img src="image/vector.png">
+        </label>
+      </div>
+      <div>
+        <input type="radio" name="option" id="small" value="sball" checked />
+        <label for="small">
+          <img src="image/smallBall.png">
+        </label>
+      </div>
+      <div>
+        <input type="radio" name="option" id="normal" value="nball" />
+        <label for="normal">
+          <img src="image/normalBall.png">
+        </label>
+      </div>
+      <div>
+        <input type="radio" name="option" id="big" value="bball" />
+        <label for="big">
+          <img src="image/bigBall.png">
+        </label>
+      </div>
+      <div>
+        <input type="radio" name="option" id="wall" value="wall" />
+        <label for="wall">
+          <img src="image/wall.png">
+        </label>
+      </div>
+      <div>
+        <input type="button" id="remove" onclick="removeObject()" />
+        <label for="remove">
+          <img src="image/remove.png">
+        </label>
+      </div>
+    </div>
+
+<script src="constructors.js" charset="utf-8"></script>
+<script src="script.js" charset="utf-8"></script>
+<script src="script2.js" charset="utf-8"></script>
+<script src="script3.js" charset="utf-8"></script>
+
+</body>
+
+</html>

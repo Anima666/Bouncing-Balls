@@ -1,0 +1,186 @@
+@charset  "UTF-8";
+/*
+* Выдвигающаяся верхняя панель
+* исключительно средствами CSS
+* работает на скрытых чекбоксах(checkbox)
+*
+* автор: @dobrovoi dbmast.ru
+*/
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+body {
+    
+    font-size: 100%;
+    font-family: "Roboto",Helvetica,Sans-serif
+}
+
+h1 {
+    font-weight: 300;
+    font-size: 175%;
+    color: #191919;
+    -webkit-font-smoothing: antialiased
+}
+
+h2 {
+    font-weight: 300;
+    font-size: 130%;
+    color: #888;
+    padding: 5px 0
+}
+
+
+@media only screen and (max-width: 400px) {
+    body {
+        font-size: 90%
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    body {
+        font-size: 100%
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    body {
+        overflow: hidden;
+        font-size: 120%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+}
+/*  ===== Выдвигающаяся верхняя панель
+*   =========================================
+*   Базовый контейнер выдвижной панели */
+
+.panel{
+    
+    width: 130px; /* Ширина слоя в пикселах */
+    opacity: 0.9;
+    justify-content: center;
+    align-items: center;
+    background: #39464e;
+    position: absolute;
+    height: 100px;
+    padding: 0;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    transition: top 400ms cubic-bezier(0.17,0.04,0.03,0.94)
+}
+.top-panel {
+    border-radius: 0 0 30px 30px;
+    display:flex;
+    top: -90px;
+    
+}
+.bot-panel {
+    border-radius: 30px 30px 0 0;
+    width: 64%;
+    display:flex;
+    top: 99%;
+    
+}
+/* Блок сообщения */
+
+/* Переключатель панели */
+.top-button {
+    display: block;
+    position: absolute;
+    margin:0 auto;
+   
+    top: 100px;
+    background: #2bbbad;
+    width: 50px;
+    height: 30px;
+    border-radius: 0 0 5px 5px;
+    padding: 8px 5px;
+    color: #FFF;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    transition: all 400ms cubic-bezier(0.17,0.04,0.03,0.94);
+}
+.bot-button {
+    display: block;
+    position: absolute;
+    
+    top: -30px;
+    background: #2bbbad;
+    width: 50px;
+    height: 30px;
+    border-radius: 5px 5px 0 0  ;
+    padding: 8px 5px;
+    color: #FFF;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    transition: all 400ms cubic-bezier(0.17,0.04,0.03,0.94);
+}
+
+
+
+/* Стрелка переключателя вниз */
+label.btn:before {
+    content: 'open';
+    font: normal 18px/1 FontAwesome;
+    text-decoration: inherit
+}
+/* Активация панели */
+.top-panel:hover{
+    top:0px;
+}
+.bot-panel:hover{
+    top:90%;
+}
+img{
+    width:89px;
+}
+
+.radios-as-buttons div {
+    float: left;
+}
+.radios-as-buttons input {
+    position: absolute;
+    left: -9999px;
+}
+.radios-as-buttons label {
+    display: block;
+    margin: 0 0 0 -1px;
+    padding: 5px 10px;
+    background: #39464e;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .12);
+    cursor: pointer;
+}
+.radios-as-buttons input:checked + label {
+    background: #2bbbad;
+}
+.radios-as-buttons div:first-child label {
+    margin-left: 0;
+}
+/* Класс контекстного меню: */
+.context-menu {
+    position: absolute; /* Задаем абсолютное позиционирование для нашего меню */
+    display: none; /* Изначально не показываем его */
+    background-color: #fff; /* Цвет фона меню */
+    border: 1px solid #333; /* Граница */
+
+   
+}
+
+/* Добавляем стили для списка которые будет находиться внутри меню и, собственно, содержать его пункты: */
+.context-menu ul { float: left; display:inline-block; margin: 0; padding: 0; }
+            
+.context-menu ul li {float: left; display:inline-block; margin: 0; padding: 0; background-color: #fff; display: block; }
+
+/* Стили для ссылок пунктов меню: */
+.context-menu ul li a {float: left; display:inline-block; color: #333; text-decoration: none; font-size: 12px; display: block; padding: 5px; }
+            
+.context-menu ul li a:hover { float: left; display:inline-block;background-color: #eee; }
