@@ -153,15 +153,19 @@ img{
     position: absolute; /* Задаем абсолютное позиционирование для нашего меню */
     display: none; /* Изначально не показываем его */
     background-color: #fff; /* Цвет фона меню */
-    border: 1px solid #333; /* Граница */
-
 
 }
 
 /* Добавляем стили для списка которые будет находиться внутри меню и, собственно, содержать его пункты: */
-.context-menu ul { float: left; display:inline-block; margin: 0; padding: 0; }
+.context-menu ul {
+  float: left; margin: 0; padding: 0;
 
-.context-menu ul li {float: left; display:inline-block; margin: 0; padding: 0; background-color: #fff; display: block; }
+ }
+
+.context-menu ul li {
+  float: left;  margin: 0; padding: 0; background-color: #fff; display: block;
+
+}
 
 /* Стили для ссылок пунктов меню: */
 .context-menu ul li a {float: left; display:inline-block; color: #333; text-decoration: none; font-size: 12px; display: block; padding: 5px; }

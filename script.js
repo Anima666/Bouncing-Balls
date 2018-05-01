@@ -175,6 +175,7 @@ function letObjectGo() {
   canvas.removeEventListener("mousemove", MoveWall);
 
   draggableItem = null;
+  flag_dbclick = false;
 
 }
 

@@ -61,7 +61,7 @@ function Ball(x, y, radius) {
             this.dy = (this.arrowY - this.y) / 50;
             ctx.beginPath();
             ctx.lineWidth = "2";
-            ctx.strokeStyle = "black";
+            ctx.strokeStyle = "red";
             ctx.moveTo(this.x, this.y);
             ctx.lineTo(this.arrowX, this.arrowY);
             ctx.lineTo(this.arrowX - 15 * Math.cos(this.angle() - Math.PI / 6), this.arrowY - 15 * Math.sin(this.angle() - Math.PI / 6));
