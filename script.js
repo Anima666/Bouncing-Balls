@@ -101,11 +101,13 @@ function mouseDown(event) {
         }
       } else {
         canvas.addEventListener("mousedown", ballAction);
+        canvas.addEventListener("dblclick", ballActiondbclick);
       }
 
     }
   }
 }
+var flag_dbclick = false;
 
 function createWall() {
   objArray2[objArray2.length] = new Wall(mouse.x, mouse.y, mouse.x, mouse.y)
@@ -113,13 +115,26 @@ function createWall() {
   canvas.addEventListener("mousemove", renderWall)
 }
 
+function ballActiondbclick(event) {
+  //  canvas.removeEventListener("mousemove", renderBall);
+  //console.log("dblclick");
+  //canvas.addEventListener("mousemove", renderArrow);
+  flag_dbclick = true;
+}
+
 function ballAction(event) {
-  if ($("input[name='option']:checked").val() == "move") {
+  //console.log(event);
+  //if ($("input[name='option']:checked").val() == "move") {
+  //canvas.addEventListener("mousemove", renderBall);
+  //} else if ($("input[name='option']:checked").val() == "vector") {
+  //canvas.addEventListener("mousemove", renderArrow);
+  //  }
+
+  if (flag_dbclick == false) {
     canvas.addEventListener("mousemove", renderBall);
-  } else if ($("input[name='option']:checked").val() == "vector") {
+  } else {
     canvas.addEventListener("mousemove", renderArrow);
   }
-
 }
 
 function renderWall() {
@@ -168,13 +183,12 @@ function clearCanvas() {
 }
 
 function pauseHandle() {
-  if (paused == false){
-    $("#btn").text("start");
-      canvas.style.backgroundColor = "#F42A36";
-    }
-  else {
+  if (paused == false) {
+    $("#btn").text("play");
+    canvas.style.backgroundColor = "#FCA1B8"; //red
+  } else {
     $("#btn").text("stop");
-    canvas.style.backgroundColor = "#AFE9E2";
+    canvas.style.backgroundColor = "#AFE9E2"; //original color
   }
 
   paused = !paused;
@@ -384,7 +398,8 @@ function drawObjects() {
   }
 }
 
-  canvasBackground();
+canvasBackground();
+
 function draw() {
 
   if (clearCanv) clearCanvas();
